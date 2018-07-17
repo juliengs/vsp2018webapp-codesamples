@@ -1,2 +1,3 @@
 # vsp2018webapp-codesamples
-Code samples for the VSP 2018 Package "E" Course (Building Modern Web Applications)
+
+In this repository, you will find the various code samples for the "Building Modern Web Application" course of the 2018 Vancouver Summer Program (VSP) package "E"
