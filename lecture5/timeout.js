@@ -1,19 +1,18 @@
-// Solution to the class activity using setItnerval
+// Solution to class activity using timeouts
 
 var invokeTimes = function(func, noTimes, time) {
     console.log("Setting up interval " + noTimes + " " + time);
     var count = 0;
-    var interval;
-    var intervalHandler = function() {
+    var timeoutHandler = function() {
+	// timeOutHandler is a closure
 	console.log( "invocation " + count);
 	func(count);
 	count = count + 1;
-	if (count == noTimes) {
-	    clearInterval(interval);
+	if (count < noTimes) {
+	    setTimeout(timeoutHandler, time);
 	}
     };
-    if (noTimes >0)
-	interval = setInterval(intervalHandler, time);
+    if (count==0) setTimeout(timeoutHandler, time);
 };
 
 var setup = function() {
