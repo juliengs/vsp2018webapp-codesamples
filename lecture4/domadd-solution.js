@@ -1,5 +1,10 @@
 var newDiv = function(node, id) {
-	// Write you solution here
+	var div = document.createElement("div");
+	div.id = id;
+	if (node && node.parentNode) {
+		node.parentNode.replaceChild(div, node);
+		div.appendChild(node);
+	}
 };
 
 window.onload = function() {
