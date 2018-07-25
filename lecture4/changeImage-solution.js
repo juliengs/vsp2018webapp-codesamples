@@ -1,7 +1,12 @@
+// This is the solution to the class activity
+
 var changeImages = function(id,  offset) {
+
+	// Get the images rooted at div 
 	var div = document.getElementById(id);
 	var imgtags = div.getElementsByTagName("img");
 
+	// Nested function to rotate the images above
 	function changeImage() {
 		if (imgtags.length==0) return;
 		var first = imgtags[0].src;
