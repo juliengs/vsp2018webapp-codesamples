@@ -73,6 +73,6 @@ window.onload = function() {
 	console.log(found);	
 
 	// Concatenate the siblings of text nodes rooted at node one
-	var str = concatenateSiblings("one", false);
+	var str = concatenateSiblings("one", true);
 	console.log(str);
 };

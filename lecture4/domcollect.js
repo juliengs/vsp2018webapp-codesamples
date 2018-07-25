@@ -12,6 +12,7 @@ var getElementsRootedAt = function(tagName, id) {
 var search = function(node, text) {
 	var found = false;
 	if (node.nodeType == 3) {
+		// console.log( "'" + node.nodeValue + "'" );
 		if (node.nodeValue == text) found = true;
 	} else {
 		var cn = node.childNodes;
@@ -44,21 +45,8 @@ var concatenateSubtree = function(node) {
 // Solution to class activity on Slide 30
 // Concatenate all the textnodes in the siblings of text node with the ID= id
 var concatenateSiblings = function(id, includeSubtrees) {
-	var node = document.getElementById(id);
+	// Write your code here
 	var result = "";
-	var parent = node.parentNode;
-	if (parent && parent.childNodes) {
-		var siblings = parent.childNodes;
-		for (var i=0; i< siblings.length; i++) {
-			var sibling = siblings[i];
-			if (sibling && sibling.nodeType == 3) {
-				result = result + sibling.nodeValue;
-			}
-			if (includeSubtrees) {
-				result = result + concatenateSubtree(sibling);
-			}
-		}
-	}
 	return result;
 };
 
@@ -69,7 +57,7 @@ window.onload = function() {
 	console.log(s);
 
 	// Find the text "is" starting from node one
-	var found = search(document.getElementById("one"), " vsp "); 	
+	var found = search(document.getElementById("one"), " is "); 	
 	console.log(found);	
 
 	// Concatenate the siblings of text nodes rooted at node one
