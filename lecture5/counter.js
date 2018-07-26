@@ -56,7 +56,7 @@ var MultiCounter = {
 	};
     }
 };
-var m = MultiCounter2.create( [1, 2, 3] );
+var m = MultiCounter.create( [1, 2, 3] );
 m.increment(0);
 m.increment(2);
 m.increment(0);
