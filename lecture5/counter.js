@@ -83,6 +83,25 @@ for (var i=0; i<10; i++) {
     document.writeln("Counter[ " + i + "] = " + m[i].get());
 }
 
+/* BAD SOLUTION: There is only one instance of the loop variable i. After the loop is done executing, when counters is returned, i==n (this is the stop condition of the loop). Therefore, all 3 functions of the counter object will try to access element i (n) of val, which doesn't exist -- therefore, undefined is returned.*/
+var MakeCounters1a = function(n) {
+    var counters = [];
+    var val = [];
+    for (var i=0; i<n; i++) {
+	val.push(i);
+	counters[i] = {
+	    increment: function() { val[i]++; },
+ 	    get: function() { return val[i]; },
+	    reset: function() { val[i] = i; }
+	}
+    }
+    return counters;
+} 
+m = MakeCounters1a(10);
+for (var i=0; i<10; i++) {
+    document.writeln("Counter[ " + i + "] = " + m[i].get());
+}
+
 // This version works, but introduces two new fields in counters -- not the best idea
 var MakeCounters2 = function(n) {
     var counters = [];
