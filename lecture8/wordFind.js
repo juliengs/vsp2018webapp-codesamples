@@ -6,8 +6,8 @@ var fs = require('fs');
 if (! fs) process.exit(1);
 
 if (process.argv.length < 4) {
-	console.log("Syntax: fileName string");
-	process.exit(2);
+    console.log("Syntax: fileName string");
+    process.exit(2);
 }
 
 var fileName = process.argv[2];
@@ -17,22 +17,22 @@ var oldBlob = "";
 var index = -1;
 
 readStream.on("data", function(blob) {
-			console.log("Read " + blob.length +  " bytes");
-			var newBlob = oldBlob + blob;
-			index = newBlob.indexOf(textToFind);
-			if (index >= 0) readStream.emit("end");
-			oldBlob = blob;
-		} );
+    console.log("Read " + blob.length +  " bytes");
+    var newBlob = oldBlob + blob;
+    index = newBlob.indexOf(textToFind);
+    if (index >= 0) readStream.emit("end");
+    oldBlob = blob;
+} );
 
 readStream.on("end", function() {
-		if (index>=0)
-			console.log("Found string " + textToFind);
-		else	
-			console.log("Did not find string " + textToFind);
-	} );
+    if (index>=0)
+	console.log("Found string " + textToFind);
+    else	
+	console.log("Did not find string " + textToFind);
+} );
 
 readStream.on("error", function() {
-		console.log("Error occurred when reading from file " + fileName);
-	} );
+    console.log("Error occurred when reading from file " + fileName);
+} );
 
 console.log("End of program");
