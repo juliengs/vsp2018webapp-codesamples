@@ -28,6 +28,7 @@ var serveRequest = function(request, response) {
 			console.log(error);
 			response.write("Unable to read file : " + fileName);
 			response.statusCode = 404;
+			response.end();
 		});
 		rs.on("data", function(data) {
 			response.write(data);
